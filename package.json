@@ -1,0 +1,22 @@
+{
+  "name": "human-readable-to-number",
+  "version": "1.0.0",
+  "description": "A Bun package that converts human-readable numbers to numeric values.",
+  "main": "src/index.ts",
+  "module": "index.ts",
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "homepage": "https://github.com/kyung-lee-official/human-readable-to-number",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kyung-lee-official/human-readable-to-number.git"
+  },
+  "author": "Kyung Lee kyung.lee.official@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
