@@ -1,6 +1,6 @@
 {
   "name": "human-readable-to-number",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Bun package that converts human-readable numbers to numeric values.",
   "main": "src/index.ts",
   "module": "index.ts",
