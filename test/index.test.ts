@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { parseHumanReadableNumber } from "../src/index.ts";
+import { parseHumanReadableNumber } from "../src/index";
 
 test("test parseHumanReadableNumber", () => {
 	expect(parseHumanReadableNumber("1K")).toBe(1000);
