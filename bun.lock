@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "human-readable-to-number",
+      "name": "num-guru",
       "devDependencies": {
         "@types/bun": "latest",
       },
