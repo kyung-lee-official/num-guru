@@ -55,3 +55,38 @@ function parseNumberWithCommas(str) {
     const parsed = parseFloat(cleanedStr);
     return isNaN(parsed) ? NaN : parsed;
 }
+/**
+ * This function converts a number into a human-readable string with optional suffixes and commas.
+ * @param num - the number to convert.
+ * @param options - options to control the output format.
+ * @param options.useSuffix - whether to use suffixes like K, M, B, T (default: true).
+ * @param options.useComma - whether to include commas in the output (default: false).
+ * @returns - the human-readable string. If the input is invalid, it returns "NaN".
+ */
+export function convertNumberToHumanReadable(num, options = {}) {
+    if (typeof num !== "number" || isNaN(num) || !isFinite(num)) {
+        return "NaN"; /* return "NaN" for invalid input or Infinity */
+    }
+    const { useSuffix = true, useComma = false } = options;
+    if (!useSuffix) {
+        /* format the number without suffixes */
+        const formattedNumber = useComma
+            ? num.toLocaleString("en-US") /* add commas */
+            : num.toString(); /* no commas */
+        return formattedNumber;
+    }
+    const suffixes = ["", "K", "M", "B", "T"];
+    let tier = 0;
+    /* determine the tier (thousands, millions, etc.) */
+    while (Math.abs(num) >= 1000 && tier < suffixes.length - 1) {
+        num /= 1000;
+        tier++;
+    }
+    /* format the number to one decimal place if needed */
+    const formattedNumber = num % 1 === 0 ? num.toString() : num.toFixed(1);
+    /* add commas if required */
+    const finalNumber = useComma
+        ? parseFloat(formattedNumber).toLocaleString("en-US")
+        : formattedNumber;
+    return `${finalNumber}${suffixes[tier]}`;
+}
